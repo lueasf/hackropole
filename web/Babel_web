@@ -1,0 +1,17 @@
+on download le docker-compose
+on build
+on ouvre localhost:8000 sur son navigateur
+en allant voir dans le code source, on voit un peu de code html
+avec un commentaire et une balise <a href="?source=1>source</a>
+on se rend donc à localhost:8000/?source=1
+on a desormais accès a un nouveau bout de code en php
+"@system($_GET['code']);" : on comprend que on peut exec des commandes
+
+j'essaye avec localhost:8000/code=ls et on trouve 2 fichiers: 
+flag.php et index.php
+
+on se sent bete on essaye
+localhost:8000/flag.php mais y'a rien
+alors on tente : localhost:8000/?code=cat flag.php
+on regarde le code source et hop le flag est là:
+FCSC{5d969396bb5592634b31d4f0846d945e4befbb8c470b055ef35c0ac090b9b8b7}
